@@ -1,7 +1,8 @@
 // =================================================================
 //
 // File: exercise02.cpp
-// Author(s):
+// Author(s): Sergio Augusto Macias Corona
+// ID: A01352038
 // Description: This file contains the code to brute-force all
 //				prime numbers less than MAXIMUM. The time this
 //				implementation takes will be used as the basis to
@@ -34,10 +35,22 @@ int main(int argc, char* argv[]) {
 
 	cout << "Starting...\n";
 	timeElapsed = 0;
-	for (int j = 0; j < N; j++) {
+	for (int j = 2; j <= MAXIMUM; j++) {
+        int primo=0;
 		start = high_resolution_clock::now();
 
 		// call the implemented function
+		for(int div=1; div<=j; div++){
+			if(j%div==0){
+				nprimo++;
+			}
+            if(nprimo>=3)
+                break;
+		}
+        if(nprimo==2){
+            result = result + j;
+        }
+        nprimo = 0;
 
 		end = high_resolution_clock::now();
 		timeElapsed += 
